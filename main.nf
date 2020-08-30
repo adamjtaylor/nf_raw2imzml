@@ -5,7 +5,7 @@ params.pat = '~/Documents/nf_testing/test.pat'
 params.outdir = 'converted_imzmls'
  
 
-process sa_auto {
+process raw2imzml {
 
   publishDir "$params.outdir"
 
@@ -16,7 +16,7 @@ process sa_auto {
 
   output:
     file '*.imzML' into imzml_out
-    file '*.ibd' into imzml_out
+    file '*.ibd' into ibd_out
 
     
     """
