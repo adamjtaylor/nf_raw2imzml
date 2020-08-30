@@ -1,4 +1,3 @@
-  
 #!/usr/bin/env nextflow
  
 params.raw = '~/Documents/nf_testing/test.raw'
