@@ -15,8 +15,8 @@ process sa_auto {
 
 
   output:
-    file '*.imzML' into records
-    file '*.ibd' into records
+    file '*.imzML' into imzml_out
+    file '*.ibd' into imzml_out
 
     
     """
