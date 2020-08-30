@@ -22,7 +22,6 @@ process raw2imzml {
     """
     wget https://github.com/AlanRace/imzMLConverter/releases/download/2.1.0/jimzMLConverter-2.1.0.zip
     unzip jimzMLConverter-2.1.0.zip
-    cd jimzMLConverter/target
-    java -jar jimzMLConverter-2.1.0.jar imzML -p $pat $raw
+    java -jar jimzMLConverter/targetjimzMLConverter-2.1.0.jar imzML -p $pat $raw
     """
 }
