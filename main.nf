@@ -22,6 +22,7 @@ process raw2imzml {
     """
     wget https://github.com/AlanRace/imzMLConverter/releases/download/2.1.0/jimzMLConverter-2.1.0.zip
     unzip jimzMLConverter-2.1.0.zip
-    java -jar ./jimzMLConverter/targetjimzMLConverter-2.1.0.jar imzML -p $pat $raw
+    imzml_name = basename raw | sed -e 's/raw/imzML/'
+    java -jar ./jimzMLConverter/target/jimzMLConverter-2.1.0.jar imzML -o imzml_name -p $pat $raw
     """
 }
