@@ -10,19 +10,16 @@ process raw2imzml {
   publishDir "$params.outdir"
 
  input:
-    val raw from params.raw
-    val pat from params.pat
+    path raw from params.raw
+    path pat from params.pat
 
 
   output:
-    file '*.imzML' into imzml_out
-    file '*.ibd' into ibd_out
+    path '*.imzML' into imzml_out
+    path '*.ibd' into ibd_out
 
     
     """
-    wget https://github.com/AlanRace/imzMLConverter/releases/download/2.1.0/jimzMLConverter-2.1.0.zip
-    unzip jimzMLConverter-2.1.0.zip
-    imzml_name = ${$raw/raw/imzML}
-    java -jar ./jimzMLConverter/target/jimzMLConverter-2.1.0.jar imzML -o imzml_name -p $pat $raw
+    java -jar /home/adamtaylor/jimzMLConverter/target/jimzMLConverter-2.1.0.jar imzML -p $pat $raw
     """
 }
