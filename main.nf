@@ -20,6 +20,6 @@ process raw2imzml {
 
     
     """
-    wine java -jar /home/adamtaylor/jimzMLConverter/target/jimzMLConverter-2.1.0.jar imzML -p '$pat_win' '$raw_win'
+    wine java -jar /home/adamtaylor/jimzMLConverter/target/jimzMLConverter-2.1.0.jar imzML -p '$pat' '$raw'
     """
 }
