@@ -3,6 +3,9 @@
 params.raw = '~/Documents/nf_testing/test.raw'
 params.pat = '~/Documents/nf_testing/test.pat'
 params.outdir = 'converted_imzmls'
+
+raw_win = raw | 's,/,\\\\,g'
+pat_win = pat | 's,/,\\\\,g'
  
 
 process raw2imzml {
@@ -10,8 +13,8 @@ process raw2imzml {
   publishDir "$params.outdir"
 
  input:
-    path raw from params.raw
-    path pat from params.pat
+    val raw from raw_win
+    val pat from pat_win
 
 
   output:
@@ -20,8 +23,6 @@ process raw2imzml {
 
     
     """
-    $raw_win = $raw | 's,/,\\\\,g'
-    $pat_win = $pat | 's,/,\\\\,g'
     java -jar /home/adamtaylor/jimzMLConverter/target/jimzMLConverter-2.1.0.jar imzML -p '$pat_win' '$raw_win'
     """
 }
