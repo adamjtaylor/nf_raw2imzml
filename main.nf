@@ -4,8 +4,8 @@ params.raw = '~/Documents/nf_testing/test.raw'
 params.pat = '~/Documents/nf_testing/test.pat'
 params.outdir = 'converted_imzmls'
 
-raw_win = params.raw.replaceAll("/", /\\/)
-pat_win = params.pat.replaceAll("/", /\\/)
+raw_win = params.raw.replaceAll(///, "\\")
+pat_win = params.pat.replaceAll(///, "\\")
 
 process raw2imzml {
 
