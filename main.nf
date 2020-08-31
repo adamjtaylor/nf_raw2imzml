@@ -20,6 +20,8 @@ process raw2imzml {
 
     
     """
-    java -jar /home/adamtaylor/jimzMLConverter/target/jimzMLConverter-2.1.0.jar imzML -p '$pat' '$raw'
+    raw_win = $raw | 's,/,\\\\,g'
+    pat_win = $pat | 's,/,\\\\,g'
+    java -jar /home/adamtaylor/jimzMLConverter/target/jimzMLConverter-2.1.0.jar imzML -p '$pat_win' '$raw_win'
     """
 }
