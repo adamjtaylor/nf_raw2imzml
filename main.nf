@@ -20,6 +20,6 @@ process raw2imzml {
 
     
     """
-    java -jar jimzMLconverter.jar imzML -p '$pat' '$raw'
+    jimzMLConverter imzML -p '$pat' '$raw'
     """
 }
