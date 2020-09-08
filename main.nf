@@ -10,8 +10,8 @@ process raw2imzml {
   publishDir "$params.outdir"
   container 'adamjtaylor/imzmlconverter-docker'
  input:
-    val raw from params.raw
-    val pat from params.pat
+    path raw from params.raw
+    path pat from params.pat
 
 
   output:
