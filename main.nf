@@ -8,7 +8,6 @@ params.outdir = 'converted_imzmls'
 process raw2imzml {
 
   publishDir "$params.outdir"
-  container 'adamjtaylor/imzmlconverter-docker'
  input:
     path raw from params.raw
     path pat from params.pat
@@ -20,6 +19,10 @@ process raw2imzml {
 
     
     """
-    jimzMLConverter imzML -p '$pat' '$raw'
+    wget https://github.com/AlanRace/imzMLConverter/releases/download/2.1.0/jimzMLConverter-2.1.0.zip
+    unzip jimzMLConverter-2.1.0.zip
+    mv jimzMLConverter/target/* ./
+    rm -r jimzMLConverter
+    java -jar jimzMLConverter-2.1.0.jar imzML -p '$pat' '$raw'
     """
 }
