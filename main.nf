@@ -9,8 +9,8 @@ process raw2imzml {
 
   publishDir "$params.outdir"
  input:
-    path raw from params.raw
-    path pat from params.pat
+    val raw from params.raw
+    val pat from params.pat
 
 
   output:
